@@ -1,6 +1,6 @@
 #include <iostream>
 #include "vector.h"
-#include <cstdlib>
+
 
 
 template <class type>
@@ -21,11 +21,12 @@ class Matrix {
             for (int i = 0;i < rows;i++) {
                 matrix.append(Vector<type>(cols));
             }
+
+            srand((unsigned)time(NULL));
+
         }
 
-        Matrix() {
-
-        }
+        Matrix() {}
 
         void fill(type item) {
             for (int i = 0;i < rows;i++) {
@@ -33,15 +34,12 @@ class Matrix {
             }
         }
 
-        Matrix<type>& randomize(int a,int b) {
+        void randomize(int a,int b) {
             if (b < a) {
-                b = a;
+                std::swap(a,b);
             }
-            else if (a == b) {
-                b++;
-            }
+            b++;
 
-            srand(time(0));
             
             for (int i = 0; i < rows;i++) {
                 for (int j = 0;j < cols;j++) {
@@ -50,7 +48,6 @@ class Matrix {
                 }
             }
 
-            return *this;
         }
 
         type& at(unsigned int row_index,unsigned int col_index) {

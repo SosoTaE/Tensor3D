@@ -4,6 +4,7 @@ using namespace std;
 
 
 int main() {
-    Tensor3D<int> Tensor(1,2,34);
-    print(Tensor);
+    Tensor3D<int> tensor(1,2,3);
+    tensor.randomize(-100,100);
+    print(tensor);
 }

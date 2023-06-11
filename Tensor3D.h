@@ -19,13 +19,18 @@ class Tensor3D: private Vector<type>, private Matrix<type> {
 
             for (int i = 0;i < length;i++) {
                 Matrix<type> each(rows,cols);
-                each.randomize(0,100);
                 tensor.append(each);
             }
         }
 
         template <class T>
         friend void print(Tensor3D<T>& tensor3d);
+
+        void randomize(int a,int b) {
+            for (int i = 0;i < this -> length;i++) {
+                tensor.at(i).randomize(a,b);
+            }
+        }
 
 };
 
